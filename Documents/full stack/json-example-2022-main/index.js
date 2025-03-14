@@ -27,7 +27,7 @@ function checkIfRead(read) {
 
   console.log(audiobooks.length); 
 
-  function countgenre() {
+ // function countgenre() {
     const countgenre = [];
     data.forEach(books => {
         if (!countgenre.includes(books.category)) {
@@ -35,29 +35,37 @@ function checkIfRead(read) {
         }
     });
   
-    return countgenre.length;
-}
+    //return countgenre.length;
+//}
 
-console.log(countgenre());
+//console.log(countgenre());
 console.log(countgenre.length);
 
 
-function mostcommongenre(){
-  
+const counts = []
+for (let i = 0; i < countgenre.length; i++) {
+  const filter = countgenre[i];
+  console.log(countgenre[i])
 
 
+
+const filtergenre = data.filter((fantasy) =>{
+    //console.log(fantasy["category"])
+    if(fantasy["category"] == filter){
+      return fantasy
+    }
+  })
+
+  console.log(filtergenre.length);
+
+  counts.push(filtergenre.length);
 }
 
 
-const fantasy = data.filter(checkIfFantasy);
-  function checkIfFantasy(fantasy) {
-    console.log(fantasy["category"])
-    if(fantasy["category"] == "Fantasy"){
-      return fantasy
-    }
-  }
 
-  console.log(fantasy.length); 
+
+
+
 
 
 
